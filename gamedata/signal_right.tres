@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrackPieces" load_steps=2 format=3 uid="uid://bwsj53w7av07a"]
+
+[ext_resource type="Script" path="res://gamedata/track_pieces.gd" id="1_dn7dw"]
+
+[resource]
+script = ExtResource("1_dn7dw")
+ID = "signal_right"
+sprite_offset = Vector2(0, 3)
+active_sprite_offset = Vector2(0, 0)
+entry_points = Array[Vector2]([Vector2(-1, 0)])
+exit_points = Array[Vector2]([Vector2(1, 0)])

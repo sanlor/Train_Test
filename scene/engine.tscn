@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbeegui2pocgt"]
+
+[ext_resource type="Script" path="res://scene/engine.gd" id="1_abxsx"]
+[ext_resource type="Texture2D" uid="uid://uukki6vhwjpt" path="res://assets/tilemap/temp_tilemap.png" id="1_xy03b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_be0t3"]
+atlas = ExtResource("1_xy03b")
+region = Rect2(64, 0, 16, 16)
+
+[node name="engine" type="Node2D"]
+script = ExtResource("1_abxsx")
+
+[node name="spr" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_be0t3")

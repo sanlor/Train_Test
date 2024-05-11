@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrackPieces" load_steps=2 format=3 uid="uid://bjca2su7mgyd0"]
+
+[ext_resource type="Script" path="res://gamedata/track_pieces.gd" id="1_56dn3"]
+
+[resource]
+script = ExtResource("1_56dn3")
+ID = "CurveDL"
+sprite_offset = Vector2(3, 0)
+active_sprite_offset = Vector2(0, 0)
+entry_points = Array[Vector2]([Vector2(-1, 0), Vector2(0, 1)])
+exit_points = Array[Vector2]([Vector2(-1, 0), Vector2(0, 1)])
