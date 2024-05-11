@@ -3,6 +3,7 @@ extends Node2D
 @onready var spr = $spr
 
 @onready var map : TileMap = get_parent()
+@onready var debug_line = $debug_line
 
 var speed := 2.5
 var is_on_track := false
@@ -17,7 +18,8 @@ func _ready():
 	else:
 		print("train not on track")
 
-
+func _setup_debug_line( path : PackedVector2Array ):
+	debug_line.points = path
 
 func _process(delta):
 	if await_path_lookup:
@@ -28,6 +30,8 @@ func _process(delta):
 		
 		
 		my_path = map.get_track_path( map.local_to_map(position), map.local_to_map(nearest_station.position) )
+		_setup_debug_line(my_path)
+		
 		if my_path.is_empty():
 			await_path_lookup = true
 			await get_tree().create_timer(0.5).timeout
@@ -41,3 +45,4 @@ func _process(delta):
 			
 		if is_zero_approx( position.distance_to(my_path.front()) ):
 			my_path.pop_front()
+			_setup_debug_line(my_path)

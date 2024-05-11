@@ -12,3 +12,11 @@ script = ExtResource("1_abxsx")
 
 [node name="spr" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_be0t3")
+
+[node name="debug_line" type="Line2D" parent="."]
+top_level = true
+width = 2.0
+default_color = Color(1, 1, 1, 0.627451)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
