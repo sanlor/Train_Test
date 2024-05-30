@@ -6,6 +6,8 @@
 script = ExtResource("1_6uqpl")
 ID = "signal_left"
 sprite_offset = Vector2(1, 4)
-active_sprite_offset = Vector2(0, 0)
+active_sprite_offset = Vector2(1, 6)
 entry_points = Array[Vector2]([Vector2(1, 0)])
 exit_points = Array[Vector2]([Vector2(-1, 0)])
+movement_rules = {}
+occupied_tiles = Array[Vector2]([Vector2(0, 0)])

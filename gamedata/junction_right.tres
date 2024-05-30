@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TrackPieces" load_steps=2 format=3 uid="uid://duhqe8h2actm3"]
+
+[ext_resource type="Script" path="res://gamedata/track_pieces.gd" id="1_ybjxh"]
+
+[resource]
+script = ExtResource("1_ybjxh")
+ID = "Junction_Right"
+sprite_offset = Vector2(4, 4)
+active_sprite_offset = Vector2(0, 0)
+entry_points = Array[Vector2]([Vector2(1, 0), Vector2(0, 1), Vector2(0, -1)])
+exit_points = Array[Vector2]([Vector2(1, 0), Vector2(0, 1), Vector2(0, -1)])
+movement_rules = {}

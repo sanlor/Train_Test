@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TrackPieces" load_steps=2 format=3 uid="uid://cwyplglhk60e0"]
+
+[ext_resource type="Script" path="res://gamedata/track_pieces.gd" id="1_k5u1x"]
+
+[resource]
+script = ExtResource("1_k5u1x")
+ID = "garage_right"
+sprite_offset = Vector2(0, 0)
+active_sprite_offset = Vector2(0, 0)
+entry_points = Array[Vector2]([Vector2(1, 0)])
+exit_points = Array[Vector2]([Vector2(1, 0)])
+movement_rules = {}
+occupied_tiles = Array[Vector2]([Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0)])

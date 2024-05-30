@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TrackPieces" load_steps=2 format=3 uid="uid://ctpg71k6gyga5"]
+
+[ext_resource type="Script" path="res://gamedata/track_pieces.gd" id="1_mjw61"]
+
+[resource]
+script = ExtResource("1_mjw61")
+ID = "station_h"
+sprite_offset = Vector2(0, 2)
+active_sprite_offset = Vector2(0, 0)
+entry_points = Array[Vector2]([Vector2(1, 0), Vector2(-1, 0)])
+exit_points = Array[Vector2]([Vector2(1, 0), Vector2(-1, 0)])
+movement_rules = {}
+occupied_tiles = Array[Vector2]([Vector2(0, 0)])

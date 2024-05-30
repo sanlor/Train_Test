@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5rwrh43336aj"]
+
+[ext_resource type="Texture2D" uid="uid://cjok8vf02tn2g" path="res://assets/tilemap/temp_tilemap_bkp.png" id="1_qfi3l"]
+[ext_resource type="Script" path="res://scene/signal.gd" id="2_1u5u0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8suaq"]
+resource_local_to_scene = true
+atlas = ExtResource("1_qfi3l")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qumvt"]
+size = Vector2(8, 8)
+
+[node name="signal" type="Sprite2D"]
+top_level = true
+z_index = 5
+texture = SubResource("AtlasTexture_8suaq")
+script = ExtResource("2_1u5u0")
+invalid_color = Color(1, 0, 0, 0.384314)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qumvt")
+
+[node name="debug_label" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -32.0
+offset_right = 16.0
+offset_bottom = -9.0
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

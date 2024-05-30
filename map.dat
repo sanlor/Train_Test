@@ -1,0 +1,8 @@
+Array[Vector2i]([Vector2i(26, 10), Vector2i(26, 11), Vector2i(26, 12), Vector2i(20, 9), Vector2i(21, 9), Vector2i(22, 9), Vector2i(23, 9), Vector2i(24, 9), Vector2i(25, 9), Vector2i(26, 9), Vector2i(19, 12), Vector2i(19, 11), Vector2i(19, 10), Vector2i(19, 9), Vector2i(14, 13), Vector2i(15, 13), Vector2i(16, 13), Vector2i(17, 13), Vector2i(18, 13), Vector2i(19, 13), Vector2i(20, 13), Vector2i(21, 13), Vector2i(22, 13), Vector2i(23, 13), Vector2i(24, 13), Vector2i(25, 13), Vector2i(26, 13), Vector2i(27, 13), Vector2i(28, 13), Vector2i(29, 13), Vector2i(30, 13), Vector2i(31, 13)])
+{"direction":0,"filename":"res://scene/station.tscn","is_placed":true,"pos_x":264,"pos_y":216,"station_name":"Noah Station"}
+{"direction":0,"filename":"res://scene/station.tscn","is_placed":true,"pos_x":472,"pos_y":216,"station_name":"Benjamin Station"}
+{"await_path_lookup":true,"curr_station_target":1,"filename":"res://scene/engine.tscn","is_on_track":true,"last_pos":"Vector2(472, 216)","my_path":[],"pos_x":472,"pos_y":216,"speed":0}
+{"direction":3,"filename":"res://scene/signal.tscn","is_blocked":false,"is_placed":true,"my_region":1,"pos_x":328,"pos_y":216}
+{"direction":3,"filename":"res://scene/signal.tscn","is_blocked":true,"is_placed":true,"my_region":0,"pos_x":408,"pos_y":216}
+{"direction":1,"filename":"res://scene/signal.tscn","is_blocked":false,"is_placed":true,"my_region":2,"pos_x":328,"pos_y":152}
+{"direction":1,"filename":"res://scene/signal.tscn","is_blocked":false,"is_placed":true,"my_region":3,"pos_x":408,"pos_y":152}

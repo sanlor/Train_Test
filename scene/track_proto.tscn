@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://d1tsympaeihko"]
 
-[ext_resource type="Texture2D" uid="uid://dv6kr41uhuupw" path="res://gamedata/tilemap_atlas.tres" id="1_wqs0o"]
+[ext_resource type="Texture2D" uid="uid://dv6kr41uhuupw" path="res://gamedata/atlas_track.tres" id="1_wqs0o"]
 [ext_resource type="Script" path="res://scene/track_prototyping.gd" id="2_sofj6"]
-[ext_resource type="Resource" uid="uid://cleovek2yrh14" path="res://gamedata/signal_down.tres" id="3_ol658"]
+[ext_resource type="Resource" uid="uid://btuwunqib7tw7" path="res://gamedata/crossroad.tres" id="3_1xop7"]
 
 [node name="track_proto" type="Sprite2D"]
 texture = ExtResource("1_wqs0o")
 script = ExtResource("2_sofj6")
-track_res = ExtResource("3_ol658")
+track_res = ExtResource("3_1xop7")

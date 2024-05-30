@@ -1,6 +1,8 @@
 @tool
 extends Sprite2D
 
+## This node is used to make new railroad piece resources.
+
 @export var reload := false :
 	set(x):
 		_reload()

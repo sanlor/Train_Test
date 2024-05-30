@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="TrackPieces" load_steps=2 format=3 uid="uid://c4n61317ker60"]
+[gd_resource type="Resource" script_class="TrackPieces" load_steps=3 format=3 uid="uid://c4n61317ker60"]
 
 [ext_resource type="Script" path="res://gamedata/track_pieces.gd" id="1_ri81h"]
+[ext_resource type="Texture2D" uid="uid://dv6kr41uhuupw" path="res://gamedata/atlas_track.tres" id="1_xb05w"]
 
 [resource]
 script = ExtResource("1_ri81h")
 ID = "StraightH"
+atlas_texture = ExtResource("1_xb05w")
 sprite_offset = Vector2(0, 0)
 active_sprite_offset = Vector2(0, 0)
 entry_points = Array[Vector2]([Vector2(1, 0), Vector2(-1, 0)])
 exit_points = Array[Vector2]([Vector2(1, 0), Vector2(-1, 0)])
+movement_rules = {}
+occupied_tiles = Array[Vector2]([Vector2(0, 0)])

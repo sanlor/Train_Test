@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bel1k8euf3aih"]
+
+[ext_resource type="Script" path="res://scene/alert_msg.gd" id="1_shycv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cjsgj"]
+font_size = 8
+
+[node name="alert_msg" type="Label"]
+offset_right = 113.0
+offset_bottom = 23.0
+text = "PLACEHOLDER"
+label_settings = SubResource("LabelSettings_cjsgj")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_shycv")

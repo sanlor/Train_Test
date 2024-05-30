@@ -9,3 +9,5 @@ sprite_offset = Vector2(2, 2)
 active_sprite_offset = Vector2(0, 0)
 entry_points = Array[Vector2]([Vector2(-1, 0)])
 exit_points = Array[Vector2]([Vector2(-1, 0)])
+movement_rules = {}
+allowed_placement = Array[ExtResource("1_d36vu")]([])

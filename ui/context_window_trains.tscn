@@ -1,0 +1,105 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt6y1u8wtnwd"]
+
+[ext_resource type="Script" path="res://ui/context_window_trains.gd" id="1_55oxa"]
+
+[node name="context_window_trains" type="Window"]
+canvas_item_default_texture_filter = 0
+title = "TRAIN_NAME"
+size = Vector2i(450, 280)
+script = ExtResource("1_55oxa")
+
+[node name="margin" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="menu" type="HBoxContainer" parent="margin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="stats" type="VBoxContainer" parent="margin/menu"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="speed" type="Label" parent="margin/menu/stats"]
+layout_mode = 2
+text = "Speed: 0"
+
+[node name="max_speed" type="Label" parent="margin/menu/stats"]
+layout_mode = 2
+text = "Max Speed: 0"
+
+[node name="state" type="Label" parent="margin/menu/stats"]
+layout_mode = 2
+text = "State: ???"
+
+[node name="pad" type="Control" parent="margin/menu/stats"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="margin/menu/stats"]
+layout_mode = 2
+alignment = 1
+
+[node name="start_engine" type="Button" parent="margin/menu/stats/HBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="stop_engine" type="Button" parent="margin/menu/stats/HBoxContainer"]
+layout_mode = 2
+text = "Stop"
+
+[node name="go_to_garage" type="Button" parent="margin/menu/stats/HBoxContainer"]
+layout_mode = 2
+text = "Garage"
+
+[node name="stations" type="VBoxContainer" parent="margin/menu"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="station_list" type="ItemList" parent="margin/menu/stations"]
+layout_mode = 2
+size_flags_vertical = 3
+auto_height = true
+item_count = 2
+item_0/text = "Placeholder"
+item_1/text = "Placeholder2"
+
+[node name="station_control" type="HBoxContainer" parent="margin/menu/stations"]
+layout_mode = 2
+
+[node name="add_station" type="Button" parent="margin/menu/stations/station_control"]
+layout_mode = 2
+text = "Add 
+Station"
+
+[node name="remove_selected_station" type="Button" parent="margin/menu/stations/station_control"]
+layout_mode = 2
+text = "Remove
+Sel. Station"
+
+[node name="activate_destination" type="Button" parent="margin/menu/stations/station_control"]
+layout_mode = 2
+text = "Activate
+Dest."
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+size = Vector2i(106, 100)
+item_count = 2
+item_0/text = "asdjkhasd"
+item_0/id = 0
+item_1/text = "sadfsadf"
+item_1/id = 1
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="margin/menu/stations/station_control/add_station" to="." method="_on_add_station_pressed"]
+[connection signal="pressed" from="margin/menu/stations/station_control/remove_selected_station" to="." method="_on_remove_selected_station_pressed"]
+[connection signal="pressed" from="margin/menu/stations/station_control/activate_destination" to="." method="_on_activate_destination_pressed"]
+[connection signal="id_pressed" from="PopupMenu" to="." method="_on_popup_menu_id_pressed"]

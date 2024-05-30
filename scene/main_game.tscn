@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://obtfpbyy4qf2"]
+[gd_scene load_steps=10 format=3 uid="uid://obtfpbyy4qf2"]
 
+[ext_resource type="Script" path="res://scene/main_game.gd" id="1_nwyv2"]
 [ext_resource type="Texture2D" uid="uid://uukki6vhwjpt" path="res://assets/tilemap/temp_tilemap.png" id="1_o71w0"]
 [ext_resource type="Script" path="res://scene/map_logic.gd" id="2_4w5il"]
-[ext_resource type="PackedScene" uid="uid://cbeegui2pocgt" path="res://scene/engine.tscn" id="2_gvt76"]
+[ext_resource type="Script" path="res://scene/main_camera.gd" id="2_geyeb"]
 [ext_resource type="Script" path="res://scene/builder_ui.gd" id="4_cr3s4"]
+[ext_resource type="Script" path="res://ui/main_ui.gd" id="4_hbvt0"]
+[ext_resource type="Script" path="res://scene/map_overlay.gd" id="7_wcgcx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_laxjo"]
 texture = ExtResource("1_o71w0")
@@ -35,11 +38,6 @@ texture = ExtResource("1_o71w0")
 5:0/0 = 0
 1:1/0 = 0
 1:1/0/terrain_set = 0
-1:1/0/terrain = 0
-1:1/0/terrains_peering_bit/right_side = 0
-1:1/0/terrains_peering_bit/bottom_side = 0
-1:1/0/terrains_peering_bit/left_side = 0
-1:1/0/terrains_peering_bit/top_side = 0
 1:1/0/custom_data_0 = true
 2:1/0 = 0
 2:1/0/terrain_set = 0
@@ -61,12 +59,12 @@ texture = ExtResource("1_o71w0")
 2:3/0 = 0
 2:3/0/terrain_set = 0
 2:3/0/terrain = 0
-2:3/0/terrains_peering_bit/top_side = 0
+2:3/0/terrains_peering_bit/bottom_side = 0
 2:3/0/custom_data_0 = true
 3:3/0 = 0
 3:3/0/terrain_set = 0
 3:3/0/terrain = 0
-3:3/0/terrains_peering_bit/bottom_side = 0
+3:3/0/terrains_peering_bit/top_side = 0
 3:3/0/custom_data_0 = true
 3:2/0 = 0
 3:2/0/terrain_set = 0
@@ -97,24 +95,12 @@ texture = ExtResource("1_o71w0")
 1:3/0/custom_data_2 = true
 4:2/0 = 0
 4:2/0/terrain_set = 0
-4:2/0/terrain = 0
-4:2/0/terrains_peering_bit/bottom_left_corner = 0
-4:2/0/terrains_peering_bit/top_right_corner = 0
 5:2/0 = 0
 5:2/0/terrain_set = 0
-5:2/0/terrain = 0
-5:2/0/terrains_peering_bit/bottom_right_corner = 0
-5:2/0/terrains_peering_bit/top_left_corner = 0
 5:3/0 = 0
 5:3/0/terrain_set = 0
-5:3/0/terrain = 0
-5:3/0/terrains_peering_bit/bottom_left_corner = 0
-5:3/0/terrains_peering_bit/top_right_corner = 0
 4:3/0 = 0
 4:3/0/terrain_set = 0
-4:3/0/terrain = 0
-4:3/0/terrains_peering_bit/bottom_right_corner = 0
-4:3/0/terrains_peering_bit/top_left_corner = 0
 2:4/0 = 0
 2:4/0/terrain_set = 0
 2:4/0/terrain = 0
@@ -139,6 +125,38 @@ texture = ExtResource("1_o71w0")
 2:5/0/terrains_peering_bit/right_side = 0
 2:5/0/terrains_peering_bit/bottom_side = 0
 2:5/0/terrains_peering_bit/left_side = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+7:5/0 = 0
+6:5/0 = 0
+5:5/0 = 0
+4:5/0 = 0
+6:2/0 = 0
+6:2/0/terrain_set = 0
+6:2/0/terrain = 0
+6:2/0/terrains_peering_bit/right_side = 0
+6:2/0/terrains_peering_bit/bottom_side = 0
+6:2/0/terrains_peering_bit/left_side = 0
+6:2/0/terrains_peering_bit/top_side = 0
+6:3/0 = 0
+7:3/0 = 0
+2:6/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+5:6/0 = 0
+4:6/0 = 0
+3:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+7:7/0 = 0
+6:7/0 = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
 
 [sub_resource type="TileSet" id="TileSet_yekjk"]
 terrain_set_0/mode = 0
@@ -153,51 +171,57 @@ custom_data_layer_2/type = 1
 sources/0 = SubResource("TileSetAtlasSource_laxjo")
 
 [node name="game_area" type="Node2D"]
+script = ExtResource("1_nwyv2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1000, 1000)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -27.0
-offset_top = -92.0
-offset_right = 973.0
-offset_bottom = 908.0
+offset_right = 1000.0
+offset_bottom = 1000.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.245481, 0.425731, 0.145196, 1)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-zoom = Vector2(2, 2)
+[node name="main_camera" type="Camera2D" parent="."]
+position = Vector2(256, 144)
+zoom = Vector2(2.5, 2.5)
+script = ExtResource("2_geyeb")
 
 [node name="map" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_yekjk")
 format = 2
 layer_0/name = "track"
-layer_0/tile_data = PackedInt32Array(393245, 131072, 2, 393244, 0, 0, 393243, 0, 0, 393242, 0, 0, 393241, 0, 0, 393240, 0, 0, 393239, 0, 0, 393238, 0, 0, 393237, 131072, 5, 393236, 0, 0, 393235, 0, 0, 393234, 0, 0, 393233, 0, 0, 393232, 0, 0, 393231, 0, 0, 393230, 0, 0, 393229, 131072, 5, 393228, 0, 0, 393227, 196608, 4, 393226, 0, 0, 393225, 0, 0, 393224, 0, 0, 393223, 0, 0, 393222, 65536, 1, 393221, 0, 0, 393220, 0, 0, 393219, 0, 0, 393218, 196608, 2, 720917, 196608, 1, 655381, 65536, 0, 589845, 65536, 0, 524309, 65536, 0, 458773, 65536, 0, 720902, 131072, 1, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 196608, 4, 720916, 0, 0, 458758, 65536, 0, 524294, 65536, 0, 589830, 65536, 0, 655366, 65536, 0, 327686, 65536, 0, 262150, 65536, 0, 196614, 131072, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 196608, 0, 262155, 65536, 0, 327691, 65536, 0, 589837, 131072, 1, 524301, 65536, 0, 458765, 65536, 0, 655379, 65536, 0, 589843, 65536, 0, 524307, 196608, 0, 524306, 0, 0, 524305, 131072, 0, 589841, 196608, 1, 589840, 0, 0, 589839, 0, 0, 589838, 0, 0, 851982, 131072, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0, 851989, 196608, 0, 917525, 131072, 1, 917526, 196608, 0, 983062, 65536, 0, 1048597, 131072, 0, 1114133, 196608, 1, 1114132, 0, 0, 1114131, 0, 0, 1114130, 0, 0, 1114129, 0, 0, 1114128, 0, 0, 1114127, 0, 0, 1114126, 131072, 1, 1048590, 65536, 0, 983054, 65536, 0, 917518, 65536, 0, 1048598, 196608, 1)
 layer_1/name = "station"
 layer_1/modulate = Color(1, 1, 1, 0.705882)
 layer_1/tile_data = PackedInt32Array()
 layer_2/name = "signals"
 layer_2/modulate = Color(1, 1, 1, 0.705882)
-layer_2/tile_data = PackedInt32Array(393225, 0, 3, 393232, 0, 3, 589830, 65536, 3, 589845, 0, 4, 720909, 65536, 4, 524301, 65536, 3, 1114130, 65536, 4, 851986, 0, 3)
+layer_2/tile_data = PackedInt32Array()
 layer_3/name = "temporary_track"
 layer_3/tile_data = PackedInt32Array()
 script = ExtResource("2_4w5il")
+removal_selection_color = Color(1, 0.26, 0.26, 0.729412)
 
-[node name="engine" parent="map" instance=ExtResource("2_gvt76")]
-position = Vector2(48, 96)
-
-[node name="debug" type="Marker2D" parent="map"]
-position = Vector2(48, 96)
-
-[node name="debug2" type="Marker2D" parent="map"]
-position = Vector2(448, 96)
+[node name="map_overlay" type="Node2D" parent="." node_paths=PackedStringArray("map")]
+script = ExtResource("7_wcgcx")
+map = NodePath("../map")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("4_hbvt0")
 
-[node name="builder" type="HBoxContainer" parent="CanvasLayer"]
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Press Load to load a example track.
+Click on the train to add station stop.
+Press 1 to show grid lines.
+Press 2 to show the track regions (what the track signals see to block or allow passage.
+Press 3 to show blocked regions."
+
+[node name="builder" type="HBoxContainer" parent="CanvasLayer" node_paths=PackedStringArray("map")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -209,13 +233,58 @@ offset_right = 47.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("4_cr3s4")
+map = NodePath("../../map")
 
-[node name="track_sel" type="OptionButton" parent="CanvasLayer/builder"]
+[node name="add_track" type="Button" parent="CanvasLayer/builder"]
 layout_mode = 2
+text = "Add Track"
 
-[node name="obj_sel" type="OptionButton" parent="CanvasLayer/builder"]
+[node name="add_signal" type="Button" parent="CanvasLayer/builder"]
 layout_mode = 2
+text = "Add Signal"
 
-[node name="clear" type="Button" parent="CanvasLayer/builder"]
+[node name="add_station" type="Button" parent="CanvasLayer/builder"]
 layout_mode = 2
-text = "Clear Obstacles"
+text = "Add Station"
+
+[node name="add_garage" type="Button" parent="CanvasLayer/builder"]
+layout_mode = 2
+text = "Add Garage"
+
+[node name="add_train" type="Button" parent="CanvasLayer/builder"]
+layout_mode = 2
+text = "Add Train"
+
+[node name="delete_item" type="Button" parent="CanvasLayer/builder"]
+layout_mode = 2
+text = "Delete Item
+"
+
+[node name="delete_track" type="Button" parent="CanvasLayer/builder"]
+layout_mode = 2
+text = "Delete Track"
+
+[node name="clear_everything" type="Button" parent="CanvasLayer/builder"]
+layout_mode = 2
+text = "Clear Everything"
+
+[node name="save" type="Button" parent="CanvasLayer/builder"]
+layout_mode = 2
+text = "Save Map
+"
+
+[node name="load" type="Button" parent="CanvasLayer/builder"]
+layout_mode = 2
+text = "Load Map
+"
+
+[connection signal="pressed" from="CanvasLayer/builder/add_track" to="CanvasLayer/builder" method="_on_add_track_pressed"]
+[connection signal="pressed" from="CanvasLayer/builder/add_signal" to="CanvasLayer/builder" method="_on_add_signal_pressed"]
+[connection signal="pressed" from="CanvasLayer/builder/add_station" to="CanvasLayer/builder" method="_on_add_station_pressed"]
+[connection signal="pressed" from="CanvasLayer/builder/add_garage" to="CanvasLayer/builder" method="_on_add_garage_pressed"]
+[connection signal="pressed" from="CanvasLayer/builder/add_train" to="CanvasLayer/builder" method="_on_add_train_pressed"]
+[connection signal="pressed" from="CanvasLayer/builder/delete_item" to="CanvasLayer/builder" method="_on_delete_item_pressed"]
+[connection signal="pressed" from="CanvasLayer/builder/delete_track" to="CanvasLayer/builder" method="_on_delete_track_pressed"]
+[connection signal="pressed" from="CanvasLayer/builder/clear_everything" to="CanvasLayer/builder" method="_on_clear_everything_pressed"]
+[connection signal="pressed" from="CanvasLayer/builder/save" to="CanvasLayer/builder" method="_on_save_pressed"]
+[connection signal="pressed" from="CanvasLayer/builder/load" to="CanvasLayer/builder" method="_on_load_pressed"]

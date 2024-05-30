@@ -6,6 +6,8 @@
 script = ExtResource("1_evgoi")
 ID = "signal_down"
 sprite_offset = Vector2(0, 4)
-active_sprite_offset = Vector2(0, 0)
+active_sprite_offset = Vector2(0, 6)
 entry_points = Array[Vector2]([Vector2(0, -1)])
 exit_points = Array[Vector2]([Vector2(0, 1)])
+movement_rules = {}
+occupied_tiles = Array[Vector2]([Vector2(0, 0)])

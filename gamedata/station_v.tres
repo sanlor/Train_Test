@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TrackPieces" load_steps=3 format=3 uid="uid://ddgeht0u7ckk4"]
+
+[ext_resource type="Texture2D" uid="uid://dv6kr41uhuupw" path="res://gamedata/atlas_track.tres" id="1_kyo7q"]
+[ext_resource type="Script" path="res://gamedata/track_pieces.gd" id="1_wm3x6"]
+
+[resource]
+script = ExtResource("1_wm3x6")
+ID = "station_h"
+atlas_texture = ExtResource("1_kyo7q")
+sprite_offset = Vector2(1, 2)
+active_sprite_offset = Vector2(0, 0)
+entry_points = Array[Vector2]([Vector2(0, 1), Vector2(0, -1)])
+exit_points = Array[Vector2]([Vector2(0, -1), Vector2(0, -1)])
+movement_rules = {}
+occupied_tiles = Array[Vector2]([Vector2(0, 0)])

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dam6yrrpoy54u"]
+
+[ext_resource type="Texture2D" uid="uid://uukki6vhwjpt" path="res://assets/tilemap/temp_tilemap.png" id="1_osjo1"]
+[ext_resource type="Script" path="res://scene/station.gd" id="2_428y1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja6sn"]
+resource_local_to_scene = true
+atlas = ExtResource("1_osjo1")
+region = Rect2(0, 32, 16, 16)
+
+[node name="station" type="Sprite2D"]
+z_index = 5
+texture = SubResource("AtlasTexture_ja6sn")
+script = ExtResource("2_428y1")
+invalid_color = Color(1, 0, 0, 0.384314)
